@@ -12,6 +12,11 @@ export async function seed(knex: Knex): Promise<void> {
             price_in_pence: 69999, // £699.99
             image_url: '/images/longboard.jpg',
             category: 'surfboard',
+            brand: 'WaveRider',
+            model: 'Classic-90',
+            rating: 4.5,
+            deal_type: null,
+            deal_discount: null,
         },
         {
             id: 2,
@@ -20,6 +25,11 @@ export async function seed(knex: Knex): Promise<void> {
             price_in_pence: 74999, // £749.99
             image_url: '/images/shortboard.jpg',
             category: 'surfboard',
+            brand: 'ShredStix',
+            model: 'Pro-X',
+            rating: 4.8,
+            deal_type: 'percentage',
+            deal_discount: 10,
         },
         {
             id: 3,
@@ -28,6 +38,11 @@ export async function seed(knex: Knex): Promise<void> {
             price_in_pence: 2999, // £29.99
             image_url: '/images/leash.jpg',
             category: 'accessory',
+            brand: 'StayTied',
+            model: 'Comp-6',
+            rating: 4.7,
+            deal_type: null,
+            deal_discount: null,
         },
         {
             id: 4,
@@ -36,6 +51,11 @@ export async function seed(knex: Knex): Promise<void> {
             price_in_pence: 499, // £4.99
             image_url: '/images/wax.jpg',
             category: 'accessory',
+            brand: 'StickyLeaf',
+            model: 'CoolWater',
+            rating: 4.9,
+            deal_type: null,
+            deal_discount: null,
         },
         {
             id: 5,
@@ -44,6 +64,11 @@ export async function seed(knex: Knex): Promise<void> {
             price_in_pence: 54995, // £549.95
             image_url: '/images/retro-fish.jpg',
             category: 'surfboard',
+            brand: 'WaveRider',
+            model: 'Rocket-58',
+            rating: 4.6,
+            deal_type: null,
+            deal_discount: null,
         },
         {
             id: 6,
@@ -52,6 +77,11 @@ export async function seed(knex: Knex): Promise<void> {
             price_in_pence: 29950, // £299.50
             image_url: '/images/soft-top.jpg',
             category: 'surfboard',
+            brand: 'AquaGlide',
+            model: 'Dolphin-80',
+            rating: 4.2,
+            deal_type: 'fixed_amount',
+            deal_discount: 2500,
         },
         {
             id: 7,
@@ -60,6 +90,11 @@ export async function seed(knex: Knex): Promise<void> {
             price_in_pence: 24999, // £249.99
             image_url: '/images/wetsuit.jpg',
             category: 'accessory',
+            brand: 'ThermoSurf',
+            model: 'Furnace-Comp',
+            rating: 4.7,
+            deal_type: null,
+            deal_discount: null,
         },
         {
             id: 8,
@@ -68,6 +103,11 @@ export async function seed(knex: Knex): Promise<void> {
             price_in_pence: 8995, // £89.95
             image_url: '/images/fins.jpg',
             category: 'accessory',
+            brand: 'ShredStix',
+            model: 'Carbon-Thruster',
+            rating: 4.9,
+            deal_type: null,
+            deal_discount: null,
         },
         {
             id: 9,
@@ -76,6 +116,11 @@ export async function seed(knex: Knex): Promise<void> {
             price_in_pence: 3499, // £34.99
             image_url: '/images/tail-pad.jpg',
             category: 'accessory',
+            brand: 'GripTide',
+            model: 'Arch-5',
+            rating: 4.4,
+            deal_type: null,
+            deal_discount: null,
         },
         {
             id: 10,
@@ -84,6 +129,11 @@ export async function seed(knex: Knex): Promise<void> {
             price_in_pence: 7495, // £74.95
             image_url: '/images/board-bag.jpg',
             category: 'accessory',
+            brand: 'BoardShield',
+            model: 'Daylight-62',
+            rating: 4.6,
+            deal_type: 'percentage',
+            deal_discount: 15,
         },
     ]);
 };

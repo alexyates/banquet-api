@@ -7,9 +7,8 @@ import { Product } from '../types';
 
 const router = express.Router();
 
-router.get(
-    '/',
-    async (request: Request, response: Response) => {
+router.route('/')
+    .get(async (request: Request, response: Response) => {
         try {
             const validationResult = productFilterSchema.safeParse(request.query);
             if (!validationResult.success) {
@@ -18,7 +17,7 @@ router.get(
                 }
                 return response.status(400).json({ error: 'Couldn not filter Products.' });
             }
-            const { category, price_in_pence_gt, price_in_pence_lt } = validationResult.data;
+            const { category, price_in_pence_gt, price_in_pence_lt, brand } = validationResult.data;
             const query = knex<Product>('products').select('*');
             if (category) {
                 query.where('category', category);
@@ -28,6 +27,9 @@ router.get(
             }
             if (price_in_pence_lt) {
                 query.where('price_in_pence', '<', price_in_pence_lt);
+            }
+            if (brand) {
+                query.where({ brand });
             }
             const products: Product[] = await query;
             response.status(200).json(products);
@@ -40,23 +42,23 @@ router.get(
         }
     });
 
-router.get(
-    '/:id',
-    async (request: Request, response: Response) => {
-        try {
-            const { id } = request.params;
-            const product = await knex('products').where({ id }).first();
-            if (product) {
-                response.status(200).json(product);
-            } else {
-                response.status(404).json({ error: 'Product not found' });
+router.route('/:id')
+    .get(
+        async (request: Request, response: Response) => {
+            try {
+                const { id } = request.params;
+                const product = await knex('products').where({ id }).first();
+                if (product) {
+                    response.status(200).json(product);
+                } else {
+                    response.status(404).json({ error: 'Product not found' });
+                }
+            } catch (error) {
+                if (process.env.NODE_ENV !== 'test') {
+                    console.error(error);
+                }
+                response.status(500).json({ error: 'An internal server error occurred.' });
             }
-        } catch (error) {
-            if (process.env.NODE_ENV !== 'test') {
-                console.error(error);
-            }
-            response.status(500).json({ error: 'An internal server error occurred.' });
-        }
-    });
+        });
 
 export default router;

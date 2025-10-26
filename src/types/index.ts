@@ -29,6 +29,11 @@ export type Product = {
     price_in_pence: number;
     image_url: string;
     category: ProductCategory;
+    brand: string;
+    model: string;
+    rating: number | null;
+    deal_type: 'percentage' | 'fixed_amount' | null;
+    deal_discount: number | null;
     created_at: string | Date;
     updated_at: string | Date;
 };

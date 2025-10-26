@@ -16,6 +16,7 @@ export const productFilterSchema = z.object({
     category: z.enum(['surfboard', 'accessory']).optional(),
     price_in_pence_gt: z.coerce.number().int().positive().optional(),
     price_in_pence_lt: z.coerce.number().int().positive().optional(),
+    brand: z.string().optional(),
 });
 
 export const addItemToCartSchema = z.object({
