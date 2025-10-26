@@ -26,3 +26,7 @@ export const addItemToCartSchema = z.object({
 export const updateCartItemSchema = z.object({
     quantity: z.number().int().positive(),
 });
+
+export const subscribeSchema = z.object({
+    email: z.email(),
+});

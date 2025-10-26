@@ -54,3 +54,29 @@ export type CartItem = {
     created_at: string | Date;
     updated_at: string | Date;
 };
+
+export type SubscriberStatus = 'subscribed' | 'unsubscribed';
+
+/**
+ * Represents a newsletter subscriber.
+ * A subscriber might not be a registered user
+ */
+export type Subscriber = {
+    id: number;
+    email: string;
+    status: SubscriberStatus;
+    created_at: string | Date;
+    updated_at: string | Date;
+};
+
+/**
+ * Represents an archived newsletter.
+ */
+export type Newsletter = {
+    id: number;
+    subject: string;
+    content: string;
+    published_at: string | Date;
+    created_at: string | Date;
+    updated_at: string | Date;
+};
