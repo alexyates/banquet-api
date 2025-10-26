@@ -37,6 +37,7 @@
   "packageManager": "pnpm@10.19.0",
   "scripts": {
     "build": "tsc",
+    "clean": "rm -R dev.sqlite3",
     "dev": "nodemon --watch src --ext ts,json --exec tsx src/index.ts",
     "migrate": "npx knex migrate:latest --knexfile knexfile.ts",
     "seed": "npx knex seed:run --knexfile knexfile.ts",

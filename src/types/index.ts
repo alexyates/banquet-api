@@ -65,6 +65,7 @@ export type Subscriber = {
     id: number;
     email: string;
     status: SubscriberStatus;
+    user_id: number | null;
     created_at: string | Date;
     updated_at: string | Date;
 };
