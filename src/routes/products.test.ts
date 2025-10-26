@@ -1,12 +1,14 @@
 // src/routes/products.test.ts
 
-import { describe, it, expect, beforeAll, afterAll, beforeEach } from 'vitest';
+import { describe, it, expect, beforeAll, afterAll, beforeEach, vi } from 'vitest';
 import request from 'supertest';
+
 import app from '../app';
 import knex from '../db/knex';
 import { Product } from '../types';
 
 describe('Product Routes', () => {
+
     beforeAll(async () => {
         await knex.migrate.latest();
     });
@@ -16,6 +18,7 @@ describe('Product Routes', () => {
     });
 
     describe('GET /api/products', () => {
+
         it('should return all products and a 200 status', async () => {
             const res = await request(app).get('/api/products');
             expect(res.statusCode).toEqual(200);
@@ -67,9 +70,11 @@ describe('Product Routes', () => {
             expect(res.statusCode).toEqual(200);
             expect(res.body).toEqual([]);
         });
+
     });
 
     describe('GET /api/products/:id', () => {
+
         it('should return a single product for a valid ID and a 200 status', async () => {
             const res = await request(app).get('/api/products/2');
             expect(res.statusCode).toEqual(200);
@@ -83,5 +88,7 @@ describe('Product Routes', () => {
             expect(res.statusCode).toEqual(404);
             expect(res.body).toHaveProperty('error', 'Product not found');
         });
+
     });
+
 });

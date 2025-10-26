@@ -6,6 +6,7 @@ import app from '../app';
 import knex from '../db/knex';
 
 describe('User Management Routes', () => {
+
     let token: string;
     let userId: number;
 
@@ -25,6 +26,7 @@ describe('User Management Routes', () => {
     });
 
     describe('Profile Management (/api/profile)', () => {
+
         it('should require authentication', async () => {
             const res = await request(app).get('/api/profile');
             expect(res.statusCode).toBe(401);
@@ -56,9 +58,21 @@ describe('User Management Routes', () => {
             expect(res.statusCode).toBe(200);
             expect(res.body.first_name).toBe('Jane');
         });
+
+        it('should return 400 when creating a profile with invalid data', async () => {
+            const invalidProfileData = { first_name: '' };
+            const res = await request(app)
+                .post('/api/profile')
+                .set('Authorization', `Bearer ${token}`)
+                .send(invalidProfileData);
+            expect(res.statusCode).toBe(400);
+            expect(res.body.error).toBeDefined();
+        });
+
     });
 
     describe('Address Management (/api/addresses)', () => {
+
         it('should require authentication', async () => {
             const res = await request(app).get('/api/addresses');
             expect(res.statusCode).toBe(401);
@@ -115,9 +129,11 @@ describe('User Management Routes', () => {
             const res = await request(app).delete(`/api/addresses/${addressId}`).set('Authorization', `Bearer ${secondToken}`);
             expect(res.statusCode).toBe(404);
         });
+
     });
 
     describe('Payment Method Management (/api/payment-methods)', () => {
+
         it('should add a new payment method using a mock token', async () => {
             const res = await request(app)
                 .post('/api/payment-methods')
@@ -127,5 +143,16 @@ describe('User Management Routes', () => {
             expect(res.body.card_brand).toBe('Visa');
             expect(res.body.last_four_digits).toBe('4242');
         });
+
+        it('should return 400 for an invalid provider token', async () => {
+            const res = await request(app)
+                .post('/api/payment-methods')
+                .set('Authorization', `Bearer ${token}`)
+                .send({ provider_token: 'tok_invalid' });
+            expect(res.statusCode).toBe(400);
+            expect(res.body.error).toBe('Invalid provider token.');
+        });
+
     });
+
 });
