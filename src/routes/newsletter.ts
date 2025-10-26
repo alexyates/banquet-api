@@ -8,19 +8,15 @@ import { subscribeSchema } from '../utils/validation';
 
 const router = express.Router();
 
-// A version of passport.authenticate that doesn't fail if the JWT is missing.
-// We use this for the subscribe route, which can be used by guests or logged-in users.
 const optionalAuthenticate = (req: Request, res: Response, next: express.NextFunction) => {
-    // passport.authenticate('jwt', { session: false }, (err, user, info) => {
     passport.authenticate('jwt', { session: false }, (_err: any, user: Express.User | undefined, _info: any) => {
         if (user) {
-            req.user = user; // Attach user to the request if authentication succeeds
+            req.user = user;
         }
-        next(); // Always proceed
+        next();
     })(req, res, next);
 };
 
-// POST /api/newsletter/subscribe
 router.post('/subscribe', optionalAuthenticate, async (req: Request, res: Response) => {
     const validation = subscribeSchema.safeParse(req.body);
     if (!validation.success) {
@@ -28,7 +24,7 @@ router.post('/subscribe', optionalAuthenticate, async (req: Request, res: Respon
     }
 
     const { email } = validation.data;
-    const user = req.user as User | undefined; // User might be undefined
+    const user = req.user as User | undefined;
 
     try {
         const existingSubscriber = await knex<Subscriber>('subscribers').where({ email }).first();
@@ -38,20 +34,20 @@ router.post('/subscribe', optionalAuthenticate, async (req: Request, res: Respon
                 return res.status(409).json({ error: 'Email is already subscribed.' });
             }
 
-            // If they were unsubscribed, re-subscribe them
+            // --- FIX ---
+            // Correctly update the 'user_id' column, not 'id'.
             const [updatedSubscriber] = await knex<Subscriber>('subscribers')
                 .where({ id: existingSubscriber.id })
-                // .update({ status: 'subscribed', user_id: user?.id ?? existingSubscriber.user_id })
-                .update({ status: 'subscribed', id: user?.id ?? existingSubscriber.id })
+                .update({ status: 'subscribed', user_id: user?.id ?? existingSubscriber.user_id })
                 .returning('*');
 
             return res.status(200).json({ subscriber: updatedSubscriber });
         }
 
-        // If no existing subscriber, create a new one
+        // --- FIX ---
+        // Correctly insert into the 'user_id' column, not 'id'.
         const [newSubscriber] = await knex<Subscriber>('subscribers')
-            // .insert({ email, user_id: user?.id ?? null })
-            .insert({ email, id: user?.id })
+            .insert({ email, user_id: user?.id ?? null })
             .returning('*');
 
         res.status(201).json({ subscriber: newSubscriber });
@@ -63,15 +59,14 @@ router.post('/subscribe', optionalAuthenticate, async (req: Request, res: Respon
     }
 });
 
-
-// GET /api/newsletter/archive
 router.get('/archive', passport.authenticate('jwt', { session: false }), async (req: Request, res: Response) => {
     const user = req.user as User;
 
     try {
+        // --- FIX ---
+        // Correctly query by the 'user_id' column, not the 'id' column.
         const subscriber = await knex<Subscriber>('subscribers')
-            // .where({ user_id: user.id, status: 'subscribed' })
-            .where({ id: user.id, status: 'subscribed' })
+            .where({ user_id: user.id, status: 'subscribed' })
             .first();
 
         if (!subscriber) {
@@ -87,6 +82,5 @@ router.get('/archive', passport.authenticate('jwt', { session: false }), async (
         res.status(500).json({ error: 'An internal server error occurred.' });
     }
 });
-
 
 export default router;
