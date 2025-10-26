@@ -9,7 +9,7 @@ export async function up(knex: Knex): Promise<void> {
         table.text('description').notNullable();
         table.integer('price_in_pence').notNullable();
         table.string('image_url');
-        table.enum('category', ['Surfboard', 'Accessory']).notNullable();
+        table.enum('category', ['surfboard', 'accessory']).notNullable();
         table.timestamps(true, true);
     });
 }

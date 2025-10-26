@@ -11,7 +11,7 @@ export async function seed(knex: Knex): Promise<void> {
             description: 'A perfect board for cruising on small to medium waves. Stable and easy to ride.',
             price_in_pence: 69999, // £699.99
             image_url: '/images/longboard.jpg',
-            category: 'Surfboard',
+            category: 'surfboard',
         },
         {
             id: 2,
@@ -19,7 +19,7 @@ export async function seed(knex: Knex): Promise<void> {
             description: 'For the advanced surfer looking to execute sharp turns and aerial maneuvers.',
             price_in_pence: 74999, // £749.99
             image_url: '/images/shortboard.jpg',
-            category: 'Surfboard',
+            category: 'surfboard',
         },
         {
             id: 3,
@@ -27,7 +27,7 @@ export async function seed(knex: Knex): Promise<void> {
             description: 'A reliable 6ft competition leash that will keep you connected to your board.',
             price_in_pence: 2999, // £29.99
             image_url: '/images/leash.jpg',
-            category: 'Accessory',
+            category: 'accessory',
         },
         {
             id: 4,
@@ -35,7 +35,7 @@ export async function seed(knex: Knex): Promise<void> {
             description: 'Get the best grip with our all-natural, environmentally friendly surf wax.',
             price_in_pence: 499, // £4.99
             image_url: '/images/wax.jpg',
-            category: 'Accessory',
+            category: 'accessory',
         },
         {
             id: 5,
@@ -43,7 +43,7 @@ export async function seed(knex: Knex): Promise<void> {
             description: 'A twin-fin fish design that excels in mushy, everyday waves. Fast and loose.',
             price_in_pence: 54995, // £549.95
             image_url: '/images/retro-fish.jpg',
-            category: 'Surfboard',
+            category: 'surfboard',
         },
         {
             id: 6,
@@ -51,7 +51,7 @@ export async function seed(knex: Knex): Promise<void> {
             description: 'The ultimate beginner board. Safe, durable, and provides excellent stability for learning.',
             price_in_pence: 29950, // £299.50
             image_url: '/images/soft-top.jpg',
-            category: 'Surfboard',
+            category: 'surfboard',
         },
         {
             id: 7,
@@ -59,7 +59,7 @@ export async function seed(knex: Knex): Promise<void> {
             description: 'Full-length summer wetsuit with internal thermal lining for maximum warmth and flexibility.',
             price_in_pence: 24999, // £249.99
             image_url: '/images/wetsuit.jpg',
-            category: 'Accessory',
+            category: 'accessory',
         },
         {
             id: 8,
@@ -67,7 +67,7 @@ export async function seed(knex: Knex): Promise<void> {
             description: 'A balanced set of three fins for all-round performance. Lightweight carbon construction.',
             price_in_pence: 8995, // £89.95
             image_url: '/images/fins.jpg',
-            category: 'Accessory',
+            category: 'accessory',
         },
         {
             id: 9,
@@ -75,7 +75,7 @@ export async function seed(knex: Knex): Promise<void> {
             description: 'High-grip EVA foam tail pad with a central arch bar for ultimate foot placement.',
             price_in_pence: 3499, // £34.99
             image_url: '/images/tail-pad.jpg',
-            category: 'Accessory',
+            category: 'accessory',
         },
         {
             id: 10,
@@ -83,7 +83,7 @@ export async function seed(knex: Knex): Promise<void> {
             description: 'Protect your board from dings and sun damage with this padded, reflective board bag.',
             price_in_pence: 7495, // £74.95
             image_url: '/images/board-bag.jpg',
-            category: 'Accessory',
+            category: 'accessory',
         },
     ]);
 };

@@ -17,7 +17,7 @@ export type User = {
  * Represents the category of a product.
  * Using a dedicated type for enums is a good practice.
  */
-export type ProductCategory = 'Surfboard' | 'Accessory';
+export type ProductCategory = 'surfboard' | 'accessory';
 
 /**
  * Represents a Product record in the database.

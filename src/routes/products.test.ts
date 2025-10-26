@@ -26,11 +26,11 @@ describe('Product Routes', () => {
 
 
         it('should filter products by category', async () => {
-            const res = await request(app).get('/api/products?category=Accessory');
+            const res = await request(app).get('/api/products?category=accessory');
             expect(res.statusCode).toEqual(200);
             expect(res.body).toBeInstanceOf(Array);
             expect(res.body.length).toBe(6);
-            expect(res.body.every((product: Product) => product.category === 'Accessory')).toBe(true);
+            expect(res.body.every((product: Product) => product.category === 'accessory')).toBe(true);
         });
 
         it('should filter products with a price greater than a given value', async () => {
@@ -50,14 +50,14 @@ describe('Product Routes', () => {
         });
 
         it('should combine multiple filters correctly', async () => {
-            const res = await request(app).get('/api/products?category=Surfboard&price_in_pence_lt=70000');
+            const res = await request(app).get('/api/products?category=surfboard&price_in_pence_lt=70000');
             expect(res.statusCode).toEqual(200);
             expect(res.body.length).toBe(3);
             expect(res.body[0].name).toBe('The Classic Longboard');
         });
 
         it('should return a 400 Bad Request for invalid filter values', async () => {
-            const res = await request(app).get('/api/products?category=Skateboard');
+            const res = await request(app).get('/api/products?category=skateboard');
             expect(res.statusCode).toEqual(400);
             expect(res.body.error).toContain('Couldn not filter Products.');
         });

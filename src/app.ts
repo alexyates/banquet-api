@@ -13,6 +13,7 @@ import authRoutes from './routes/auth';
 import productRoutes from './routes/products';
 import cartRoutes from './routes/cart';
 import newsletterRoutes from './routes/newsletter';
+import usersRoutes from './routes/users';
 
 dotenv.config();
 
@@ -45,6 +46,7 @@ app.use('/api', authRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/cart', cartRoutes);
 app.use('/api/newsletter', newsletterRoutes);
+app.use('/api', usersRoutes);
 
 app.get('/', (_request, response) => {
     response.send('Welcome to the Food E-Commerce API!');
