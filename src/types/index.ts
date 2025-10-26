@@ -26,7 +26,7 @@ export type Product = {
     id: number;
     name: string;
     description: string;
-    price_in_cents: number;
+    price_in_pence: number;
     image_url: string;
     category: ProductCategory;
     created_at: string | Date;
