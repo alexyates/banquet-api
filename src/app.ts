@@ -49,7 +49,7 @@ app.use('/api/newsletter', newsletterRoutes);
 app.use('/api', usersRoutes);
 
 app.get('/', (_request, response) => {
-    response.send('Welcome to the Food E-Commerce API!');
+    response.send('Welcome to the Banquet Surf Co. API!');
 });
 
 export default app;
