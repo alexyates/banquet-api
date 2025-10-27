@@ -7,14 +7,24 @@ export async function up(knex: Knex): Promise<void> {
         table.increments('id').primary();
         table.string('name').notNullable();
         table.text('description').notNullable();
+        //
         table.integer('price_in_pence').notNullable();
         table.string('image_url');
         table.enum('category', ['surfboard', 'accessory']).notNullable();
         table.string('brand').notNullable();
-        table.string('model').notNullable();
+        //
         table.decimal('rating', 2, 1).checkBetween([0, 5]).nullable();
         table.enum('deal_type', ['percentage', 'fixed_amount']).nullable();
         table.integer('deal_discount').unsigned().nullable();
+        // surfboard
+        table.string('model');
+        table.string('dimensions');
+        table.string('volume');
+        table.string('ability');
+        table.string('conditions');
+        table.string('construction');
+        table.string('fin_system');
+        // 
         table.timestamps(true, true);
     });
 }

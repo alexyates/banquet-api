@@ -26,14 +26,24 @@ export type Product = {
     id: number;
     name: string;
     description: string;
+    //
     price_in_pence: number;
     image_url: string;
     category: ProductCategory;
     brand: string;
-    model: string;
+    //
     rating: number | null;
     deal_type: 'percentage' | 'fixed_amount' | null;
     deal_discount: number | null;
+    // surfboard
+    model: string | null;
+    dimensions?: string | null;
+    volume?: string | null;
+    ability?: string | null;
+    conditions?: string | null;
+    construction?: string | null;
+    fin_system?: string | null;
+    //
     created_at: string | Date;
     updated_at: string | Date;
 };
