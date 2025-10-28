@@ -18,7 +18,7 @@ Its generous volume and gentle rocker let you catch even the smallest swells, wh
 - **Fin Setup:** Single fin box for that classic, pivotal longboard feel.`,
             //
             price_in_pence: 69999,
-            image_url: '/images/longboard.jpg',
+            image_url: '/surfboard.webp',
             category: 'surfboard',
             brand: 'WaveRider',
             //
@@ -47,7 +47,7 @@ The Pro-X features a refined single concave for blistering speed and a responsiv
 - **Best Conditions:** Chest-high to double-overhead, powerful waves.`,
             //
             price_in_pence: 74999,
-            image_url: '/images/shortboard.jpg',
+            image_url: '/surfboard.webp',
             category: 'surfboard',
             brand: 'ShredStix',
             //
@@ -71,7 +71,7 @@ The Pro-X features a refined single concave for blistering speed and a responsiv
 Built with a high-strength, lightweight 6mm polyurethane cord, it minimizes drag without compromising on durability. The double-swivel design prevents tangles, while the comfortable neoprene cuff ensures it stays securely on your ankle, session after session. Trust StayTied to keep you connected.`,
             //            
             price_in_pence: 2999,
-            image_url: '/images/leash.jpg',
+            image_url: '/surfboard.webp',
             category: 'accessory',
             brand: 'StayTied',
             //
@@ -95,7 +95,7 @@ Built with a high-strength, lightweight 6mm polyurethane cord, it minimizes drag
 It's easy to apply, creates perfect beads for all-day grip, and has a fresh, subtle scent. Make the switch and feel the difference.`,
             //
             price_in_pence: 499,
-            image_url: '/images/wax.jpg',
+            image_url: '/surfboard.webp',
             category: 'accessory',
             brand: 'StickyLeaf',
             //
@@ -119,7 +119,7 @@ It's easy to apply, creates perfect beads for all-day grip, and has a fresh, sub
 Its wider outline and flatter rocker help you paddle in early and fly across even the softest sections, while the deep swallowtail provides a pivot point for surprisingly snappy turns. It's fast, loose, and guaranteed to put a smile on your face.`,
             //
             price_in_pence: 54995,
-            image_url: '/images/retro-fish.jpg',
+            image_url: '/surfboard.webp',
             category: 'surfboard',
             brand: 'WaveRider',
             //
@@ -143,7 +143,7 @@ Its wider outline and flatter rocker help you paddle in early and fly across eve
 The high-volume foam core makes paddling and catching waves incredibly easy, while the soft, forgiving deck minimizes bumps and bruises. Its durable slick bottom ensures a smooth glide, helping new surfers build confidence and master the basics faster than ever.`,
             //            
             price_in_pence: 29950,
-            image_url: '/images/soft-top.jpg',
+            image_url: '/surfboard.webp',
             category: 'surfboard',
             brand: 'AquaGlide',
             //
@@ -167,7 +167,7 @@ The high-volume foam core makes paddling and catching waves incredibly easy, whi
 Featuring our ultra-stretchy, eco-conscious neoprene and a quick-drying thermal lining across the chest and back, this suit keeps your core warm and your movements unrestricted. Glued and blind-stitched seams minimize water entry, letting you stay out longer and surf stronger.`,
             //
             price_in_pence: 24999,
-            image_url: '/images/wetsuit.jpg',
+            image_url: '/surfboard.webp',
             category: 'accessory',
             brand: 'ThermoSurf',
             //
@@ -191,7 +191,7 @@ Featuring our ultra-stretchy, eco-conscious neoprene and a quick-drying thermal 
             The balanced template offers a perfect combination of drive, pivot, and release, while the lightweight carbon base provides stiffness for powerful bottom turns and explosive speed. The refined foil and flexible tip allow for a responsive feel through turns, making your board feel more alive than ever.`,
             //
             price_in_pence: 8995,
-            image_url: '/images/fins.jpg',
+            image_url: '/surfboard.webp',
             category: 'accessory',
             brand: 'ShredStix',
             //
@@ -215,7 +215,7 @@ Featuring our ultra-stretchy, eco-conscious neoprene and a quick-drying thermal 
 The high-grip diamond groove texture ensures your foot stays planted, while the central arch bar provides crucial feedback for precise foot placement. It's the ultimate connection between you and your board.`,
             //
             price_in_pence: 3499,
-            image_url: '/images/tail-pad.jpg',
+            image_url: '/surfboard.webp',
             category: 'accessory',
             brand: 'GripTide',
             //
@@ -239,7 +239,7 @@ The high-grip diamond groove texture ensures your foot stays planted, while the 
 Featuring a durable, heat-reflective outer shell and 5mm of padded protection, it's the perfect lightweight solution for trips to the local break or for storing your board safely at home.`,
             //
             price_in_pence: 7495,
-            image_url: '/images/board-bag.jpg',
+            image_url: '/surfboard.webp',
             category: 'accessory',
             brand: 'BoardShield',
             //
