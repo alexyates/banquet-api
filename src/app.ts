@@ -14,6 +14,7 @@ import productRoutes from './routes/products';
 import cartRoutes from './routes/cart';
 import newsletterRoutes from './routes/newsletter';
 import usersRoutes from './routes/users';
+import orderRoutes from './routes/orders';
 
 dotenv.config();
 
@@ -47,6 +48,7 @@ app.use('/api/products', productRoutes);
 app.use('/api/cart', cartRoutes);
 app.use('/api/newsletter', newsletterRoutes);
 app.use('/api', usersRoutes);
+app.use('/api/orders', orderRoutes);
 
 app.get('/', (_request, response) => {
     response.send('Welcome to the Banquet Surf Co. API!');

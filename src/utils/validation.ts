@@ -50,3 +50,12 @@ export const addressSchema = z.object({
 export const paymentMethodSchema = z.object({
     provider_token: z.string().min(1), // e.g., 'tok_visa' from Stripe
 });
+
+export const createOrderIntentSchema = z.object({
+    shipping_address_id: z.number().int().positive(),
+});
+
+export const confirmOrderSchema = z.object({
+    payment_intent_id: z.string().min(1),
+    shipping_address_id: z.number().int().positive(),
+});

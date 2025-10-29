@@ -96,3 +96,34 @@ export type Newsletter = {
     created_at: string | Date;
     updated_at: string | Date;
 };
+
+export type OrderStatus = 'pending' | 'paid' | 'shipped' | 'delivered' | 'cancelled';
+
+/**
+ * Represents an Order record in the database.
+ */
+export type Order = {
+    id: number;
+    user_id: number;
+    status: OrderStatus;
+    subtotal_in_pence: number;
+    shipping_in_pence: number;
+    tax_in_pence: number;
+    total_in_pence: number;
+    shipping_address: string; // Stored as JSON string
+    payment_intent_id: string | null;
+    created_at: string | Date;
+    updated_at: string | Date;
+};
+
+/**
+ * Represents an item within an order.
+ */
+export type OrderItem = {
+    id: number;
+    order_id: number;
+    product_id: number;
+    quantity: number;
+    price_in_pence_at_purchase: number;
+    product_name_at_purchase: string;
+};

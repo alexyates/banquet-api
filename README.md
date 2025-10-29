@@ -6,6 +6,7 @@ pnpm approve-builds
 
 Generate
 ```bash
+# pnpx knex migrate:make create_aaa_bbb_table
 pnpm clean
 pnpm migrate
 pnpm seed
