@@ -21,7 +21,7 @@ describe('Product Routes', () => {
             const res = await request(app).get('/api/products');
             expect(res.statusCode).toEqual(200);
             expect(res.body).toBeInstanceOf(Array);
-            expect(res.body.length).toBe(10);
+            expect(res.body.length).toBe(13);
             expect(res.body[0]).toHaveProperty('name', 'The Classic Longboard');
             expect(res.body[0]).toHaveProperty('brand', 'WaveRider');
             expect(res.body[0]).toHaveProperty('rating', 4.5);
@@ -32,7 +32,7 @@ describe('Product Routes', () => {
             const res = await request(app).get('/api/products?category=accessory');
             expect(res.statusCode).toEqual(200);
             expect(res.body).toBeInstanceOf(Array);
-            expect(res.body.length).toBe(6);
+            expect(res.body.length).toBe(8);
             expect(res.body.every((product: Product) => product.category === 'accessory')).toBe(true);
         });
 
@@ -47,7 +47,7 @@ describe('Product Routes', () => {
         it('should filter products with a price greater than a given value', async () => {
             const res = await request(app).get('/api/products?price_in_pence_gt=70000');
             expect(res.statusCode).toEqual(200);
-            expect(res.body.length).toBe(1);
+            expect(res.body.length).toBe(2);
             expect(res.body[0].name).toBe('High-Performance Shortboard');
         });
 
